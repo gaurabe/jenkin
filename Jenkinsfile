@@ -1,36 +1,10 @@
-pipeline {
-    agent any
-   
+ node{
    stage('SCM Checkout'){
-     git 'https://github.com/gaurabe/jenkin'
+     git 'https://github.com/gaurabe/jenkin'  
    }
-
-    stages {
-        stage ('Compile Stage') {
-
-            steps {
-                withMaven(maven : 'Maven') {
-                    sh 'mvn clean compile'
-                }
-            }
-        }
-
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'Maven') {
-                    sh 'mvn test'
-                }
-            }
-        }
-
-
-        stage ('Deployment Stage') {
-            steps {
-                withMaven(maven : 'Maven') {
-                    sh 'mvn deploy'
-                }
-            }
-        }
-    }
-}
+   stage('Compile-Package'){
+    
+      def mvnHome =  tool name: 'Maven', type: 'maven'
+      sh "${mvnHome}/bin/mvn package"
+   }
+   }
