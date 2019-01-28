@@ -13,12 +13,11 @@ node{
 }
 
 stage('Push image') {
-	credentialsId:'gcr:sandbox-khl',toolName: 'docker') {
+  docker.withRegistry(credentialsId:'gcr:sandbox-khl',toolName: 'docker') {
     app.push("${env.BUILD_NUMBER}")
     app.push("latest")
   }
    }
 }
    
-      
    
