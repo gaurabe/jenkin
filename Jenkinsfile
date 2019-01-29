@@ -9,7 +9,7 @@ node{
    }
    
    stage('Build image') {
-	sh "docker build -t gcr.io/sandbox-khl/jenkintest:latest ."
+	sh "docker build -f Dockerfile -t jenkintest ."
 }
 
 }
