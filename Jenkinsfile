@@ -9,15 +9,9 @@ node{
    }
    
    stage('Build image') {
-	app = docker.build("sandbox-khl/jenkintest-0.0.1-SNAPSHOT")
+	sh 'docker build -t gcr.io/sandbox-khl/jenkintest .'
 }
 
-stage('Push image') {
-  docker.withRegistry(credentialsId:'gcr:sandbox-khl',toolName: 'docker') {
-    app.push("${env.BUILD_NUMBER}")
-    app.push("latest")
-  }
-   }
 }
    
-   
+  
