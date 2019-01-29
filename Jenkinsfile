@@ -1,3 +1,4 @@
+
 node{
    stage('SCM Checkout'){
      git 'https://github.com/gaurabe/jenkin'  
@@ -9,7 +10,7 @@ node{
    }
    
    stage('Build image') {
-	sh "docker build -f Dockerfile -t jenkintest ."
+	sh  "sudo docker build -f Dockerfile -t jenkintest ."
 }
 
 }
