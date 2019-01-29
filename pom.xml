@@ -45,8 +45,8 @@
                <testFailureIgnore>true</testFailureIgnore>
             </configuration>
             </plugin>
-			
 		</plugins>
+		<finalName>jenkintest</finalName>
 	</build>
 
 </project>
