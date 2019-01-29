@@ -12,6 +12,8 @@ node{
 	sh  "sudo docker build -f Dockerfile -t gcr.io/sandbox-khl/jenkintest ."
 	}
 	stage('push image gcloud') {
+	sh"gcloud auth configure-docker"
+	sh "docker pull gcr.io/sandbox-khl/jenkintest"
     sh "gcloud docker -- push gcr.io/sandbox-khl/jenkintest ."
 	
 	}
