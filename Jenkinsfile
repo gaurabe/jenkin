@@ -15,10 +15,8 @@ node{
     sh "sudo gcloud docker -- push gcr.io/sandbox-khl/jenkintest:latest"
 	}
 	stage('run on google Kubernetes') {
-	sh"sudo kubectl proxy"
-    sh "sudo kubectl run jenkintest --image=gcr.io/sandbox-khl/jenkintest:latest --port=8080"
-	sh "sudo kubectl expose deployment jenkintest --type="LoadBalancer""
-	sh "sudo kubectl get services"
+    sh "kubectl run jenkintest --image=gcr.io/sandbox-khl/jenkintest:latest --port=8080"
+	sh "kubectl expose deployment jenkintest --type="LoadBalancer""
 	}
 
 }
