@@ -13,7 +13,7 @@ node{
 	}
 	stage('push image gcloud') {
 	sh"sudo gcloud auth configure-docker"
-    sh "sudo gcloud docker -- push gcr.io/sandbox-khl/jenkintest:latest ."
+    sh "sudo gcloud docker -- push gcr.io/sandbox-khl/jenkintest:latest"
 	
 	}
 
