@@ -12,7 +12,7 @@ node{
 	}
 	stage('push image to gcloud registry') {
 	sh"sudo gcloud auth configure-docker"
-    sh "sudo docker -- push gcr.io/sandbox-khl/jenkintest:latest"
+    sh "sudo docker push gcr.io/sandbox-khl/jenkintest:latest"
 	}
 	stage('run on google Kubernetes') {
     sh "kubectl run jenkintest --replicas=1 --image=gcr.io/sandbox-khl/jenkintest:latest --port=8080"
